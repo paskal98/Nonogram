@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nonogram</title>
+    <link rel="stylesheet" href="../static/css/stylesheet.css">
+</head>
+<body>
+
+<style>
+
+
+    a {
+        color: #f1f1f1;
+    }
+
+    a:link {
+        text-decoration: none;
+    }
+
+    a:visited {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a:active {
+        text-decoration: none;
+    }
+
+
+    body {
+        background-color: #f1f1f1;
+        font-size: 12px;
+        font-family: Verdana, "Verdana CE", Arial, "Arial CE", "Helvetica CE", sans-serif;
+        color: #000000;
+        margin: 10px;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        font-family: Arial, "Arial CE", "Helvetica CE", sans-serif;
+        font-size: 28px;
+        font-weight: bold;
+        padding: 0px;
+        color: #045491;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+    }
+
+    h2 {
+        font-family: Arial, "Arial CE", "Helvetica CE", sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0px;
+        padding: 0px;
+        color: #045491;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .controls-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .controls-container form {
+
+    }
+
+    .controls-container label {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .controls-container button {
+        margin-right: 10px;
+        background-color: #4c5eaf;
+        color: #fff;
+        border: none;
+        padding: 8px;
+        min-width: 60px;
+
+    }
+
+    .submit button {
+        margin-right: 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        padding: 8px;
+        width: 80px;
+
+    }
+
+    .end button {
+        background-color: #c43535;
+    }
+
+
+    .grid_wrap {
+        border-left: 1px solid black;
+        border-top: 1px solid black;
+    }
+
+    .grid_wrap_row_item a {
+        color: #181717;
+    }
+
+
+    .grid_wrap_row {
+        display: flex;
+        justify-content: flex-start;
+
+    }
+
+    .grid_wrap_row_item {
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        font-size: 24px;
+    }
+
+
+    .grid_wrap_row_item a {
+
+        width: inherit;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    .clue {
+        font-size: 24px;
+    }
+
+
+    .clue_line {
+
+        display: flex;
+        justify-content: space-between;
+
+    }
+    .clue_row_line{
+        border-bottom: 1px solid #1550BBFF;
+    }
+
+    .clue_item {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .clue_row_item{
+        border-left: 1px solid #1550BBFF;
+    }
+
+    .clue_row_line:nth-child(1) {
+        border-top: 1px solid #1550BBFF;
+    }
+
+    .clue_column_line{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .clue_column{
+        display: flex;
+        border-right: 1px solid #1550BBFF;
+    }
+
+    .clue_column_line{
+        border-left: 1px solid #1550BBFF;
+    }
+
+    .clue_column_item{
+        border-top: 1px solid #1550BBFF;
+    }
+
+
+</style>
+
+<main>
+
+    <div class="controls-container ">
+        <form th:method="GET" th:action="@{/nonogram}">
+            <label for="size">Size:</label>
+            <input type="number" id="size" name="size" min="3" max="15">
+            <button type="submit">Start Game</button>
+        </form>
+    </div>
+
+
+    <div class="container" style="align-items: end" th:utext="${@nonogramController.htmlField}"></div>
+
+
+    <div class="controls-container">
+        <button id="reset-button"><a href="/nonogram/reset">Reset</a></button>
+        <button id="hint-button"><a href="/nonogram/hint">Hint</a></button>
+        <button id="solve-button"><a href="/nonogram/solve">Solve</a></button>
+    </div>
+
+    <div class="controls-container submit">
+        <button id="submit-button"><a href="/nonogram/submit">Submit</a></button>
+    </div>
+
+    <div class="controls-container end">
+        <button id="end-button"><a href="/nonogram/score">End Game</a></button>
+    </div>
+</main>
+
+
+</body>
+</html>
+
+

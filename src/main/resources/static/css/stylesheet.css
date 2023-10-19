@@ -1,0 +1,136 @@
+
+body {
+    background-color: #f1f1f1;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Helvetica CE", sans-serif;
+    font-size:  28px;
+    font-weight: bold;
+    padding: 0px;
+    color: #045491;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+h2 {
+    font-family: Arial, "Arial CE", "Helvetica CE", sans-serif;
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #045491;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 2px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.grid-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+}
+
+.hints-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.row-hints-container, .column-hints-container {
+    display: grid;
+    grid-gap: 2px;
+    margin-bottom: 10px;
+}
+
+.hint-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.controls-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.controls-container form {
+
+}
+
+.controls-container label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.controls-container button {
+    margin-right: 10px;
+    background-color: #4c5eaf;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    min-width: 60px;
+
+}
+
+.submit button {
+    margin-right: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    width: 80px;
+
+}
+
+.grid_wrap_row{
+    display:flex;
+    justify-content: flex-start;
+
+}
+
+.grid_wrap_row_item{
+    width:20px;
+    height:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    border: 1px solid black;
+}

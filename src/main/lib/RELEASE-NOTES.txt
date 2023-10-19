@@ -1,0 +1,170 @@
+
+              Apache Commons Numbers 1.1 RELEASE NOTES
+
+The Apache Commons Numbers team is pleased to announce the release of
+commons-numbers-parent-1.1
+
+The Apache Commons Numbers project provides number types and utilities.
+
+New features, updates and bug fixes. Adds a commons-numbers-bom module. Requires Java 8.
+
+Changes in this version include:
+
+New features:
+o NUMBERS-190:  Add a Bill of Materials (BOM) to aid in dependency management when referencing
+        multiple Apache Commons Numbers artifacts. The BOM should be used to ensure all
+        imported artifacts are compatible.
+o NUMBERS-181:  Updated support for the beta functions. "RegularizedBeta": Added the
+        complement and derivative of the regularized beta function.
+        Added "IncompleteBeta" and "Beta" classes.
+        Functionality is ported from the Boost C++ library.
+o NUMBERS-180:  "GammaRatio": Compute the ratio of two gamma functions.
+o NUMBERS-177:  "Erfcx": Compute a scaled complementary error function:
+        erfcx(z) = erfc(z) * exp(z*z).
+o NUMBERS-175:  "GeneralizedContinuedFraction": A continued fraction class to compute using a
+        generator. Allows evaluation of continued fractions from a regular series where
+        coefficients can be computed iteratively from the previous coefficients.
+
+Fixed Bugs:
+o NUMBERS-185:  "Precision": Allow Precision.compareTo using a maxUlps to be used for sorting.
+        This corrects handling of NaN comparisons.
+o NUMBERS-182:  "LogBeta": Avoid overflow for tiny arguments.
+o           "BrentSolver": Avoid overflow creating the initial value between the lower and upper.
+o NUMBERS-173:  "ContinuedFraction": Set a minimum bound on the relative error epsilon. Prevents
+        an infinite loop when the epsilon is zero.
+o           "FactorialDouble": Prevent caching values that are infinite. The cache will support
+        factorials up to 170.
+o NUMBERS-170:  "RegularizedBeta": Detect edge cases for arguments that can be evaluated by
+        exploiting properties of the regularized beta function.
+o NUMBERS-168:  "BrentSolver": Identify brackets with small objective values.
+o           Fix wrong javadoc. Thanks to Arturo Bernal.
+
+Changes:
+o NUMBERS-184:  "Precision": Reduce number of operations in Precision.equals using a maxUlps.
+o NUMBERS-183:  Improve the binomial coefficient classes. Avoid recursive method calls.
+        Avoid overflow for BinomialCoefficientDouble for large results close to infinity.
+        Use precomputed factorials and the LogBeta function for efficiency.
+o NUMBERS-178:  "Factorial/FactorialDouble": Tabulate all factorials with exact 64-bit double
+        representations of n! up to n=170. This change deprecates the FactorialDouble
+        class and removes obsolete caching functionality.
+o NUMBERS-176:  "ContinuedFraction": Update to use a shared implementation with
+        GeneralizedContinuedFraction.
+o NUMBERS-174:  "Gamma/LogGamma/RegularizedGamma": Update the gamma function implementations to
+        increase accuracy and support for extreme values.
+        Functionality is ported from the Boost C++ library.
+o NUMBERS-172:  "Erf/Erfc": Use a rational function approximation accurate to 53-bits of precision.
+        This replaces the use of the regularized gamma functions P and Q and increases accuracy
+        at extreme limits of the function. Execution speed is improved.
+        Functionality is ported from the Boost C++ library.
+o NUMBERS-171:  "InverseErfc": Support full range of [0, 2]. This lowers the supported
+        minimum value from 2^-53 to double min value. Execution speed is improved.
+        Functionality is ported from the Boost C++ library.
+
+
+For complete information on Apache Commons Numbers, including instructions on how to submit bug
+reports, patches, or suggestions for improvement, see the Apache Commons Numbers website:
+
+http://commons.apache.org/proper/commons-numbers/
+
+
+=============================================================================
+
+              Apache Commons Numbers 1.0 RELEASE NOTES
+
+The Apache Commons Numbers team is pleased to announce the release of
+commons-numbers-parent-1.0
+
+The Apache Commons Numbers project provides number types and utilities.
+
+This is the first official release of Apache Commons Numbers.
+
+Apache Commons Numbers 1.0 contains the following library modules:
+ commons-numbers-angle (requires Java 8+)
+ commons-numbers-arrays (requires Java 8+)
+ commons-numbers-combinatorics (requires Java 8+)
+ commons-numbers-complex (requires Java 8+)
+ commons-numbers-core (requires Java 8+)
+ commons-numbers-field (requires Java 8+)
+ commons-numbers-fraction (requires Java 8+)
+ commons-numbers-gamma (requires Java 8+)
+ commons-numbers-primes (requires Java 8+)
+ commons-numbers-quaternion (requires Java 8+)
+ commons-numbers-rootfinder (requires Java 8+)
+N.B. the Performance testing module requires Java 9+. (The unit tests require Java 8+)
+
+Changes in this version include:
+
+
+Fixed Bugs:
+o NUMBERS-153:  Use iterative implementation of "trigamma" function. Thanks to Dmitriy Golovashkin
+        for reporting. Thanks to Gilles Sadowski.
+o NUMBERS-150:  "Fraction/BigFraction": Fixed pow(int) to handle Integer.MIN_VALUE and throw
+        ArithmeticException for negative exponents to a fraction of zero. Thanks to Jin Xu.
+o NUMBERS-147:  Fixed Fraction/BigFraction from(double, int) to support Integer.MIN_VALUE as max
+        denominator. Thanks to Alex Herbert.
+
+Changes:
+o NUMBERS-163:  Combined "LinearCombination" and "Summation" into single "Sum" class. Thanks to
+        Matt Juntunen.
+o NUMBERS-164:  Added SortInPlace utility, original from Commons Math. Thanks to Gilles Sadowski.
+o NUMBERS-159:  Moved "Norms", "LinearCombination", and "Summation" from commons-numbers-arrays
+        module to commons-numbers-core module. Moved "CosAngle" from commons-numbers-arrays module
+        to commons-numbers-angle module. Thanks to Matt Juntunen.
+o NUMBERS-156:  Replaced "SafeNorm" with "Norms". Added "Summation" class for extended precision
+        summation. Thanks to Matt Juntunen.
+o NUMBERS-161:  "Angle" replaces "PlaneAngle" and "PlaneAngleRadians". Thanks to Gilles Sadowski.
+o NUMBERS-158:  Replace angle normalize method with normalizer method that returns operator
+        instance. Thanks to Gilles Sadowski.
+o NUMBERS-157:  Adding Reduce operation originally from Commons Math to commons-numbers-angle
+        module. Thanks to Gilles Sadowski.
+o NUMBERS-142:  "LinearCombination": Update to use the dot2s algorithm. Avoids construction of an
+        intermediate array for array dot products. Update the hi-lo splitting algorithm
+        to use Dekker's split to ensure the product round-off is computed to exact precision.
+        Thanks to Alex Herbert.
+o NUMBERS-154:  Precision compareTo method now handles NaN properly to ensure consistent sorting.
+        Thanks to Gilles Sadowski.
+o NUMBERS-149:  "Fraction": Port tests from commons-lang Fraction to demonstrate functional
+        compatibility between the lang and numbers implementation of Fraction. Thanks to Jin Xu.
+o NUMBERS-151:  "ArithmeticUtils": Refine pow(int, int) and pow(long, int) for edge cases.
+        Thanks to Jin Xu.
+
+
+For complete information on Apache Commons Numbers, including instructions on how to submit bug
+reports, patches, or suggestions for improvement, see the Apache Commons Numbers website:
+
+http://commons.apache.org/proper/commons-numbers/
+
+
+=============================================================================
+
+              Apache Commons Numbers 1.0-beta1 RELEASE NOTES
+
+The Apache Commons Numbers team is pleased to announce the release of
+commons-numbers-parent-1.0-beta1
+
+The Apache Commons Numbers project provides number types and utilities.
+
+This is a beta release of Apache Commons Numbers. No guarantees are made regarding the stability
+of the API or compatibility with future releases.
+
+Apache Commons Numbers 1.0-beta1 contains the following library modules:
+ commons-numbers-angle (requires Java 8+)
+ commons-numbers-arrays (requires Java 8+)
+ commons-numbers-combinatorics (requires Java 8+)
+ commons-numbers-complex (requires Java 8+)
+ commons-numbers-core (requires Java 8+)
+ commons-numbers-field (requires Java 8+)
+ commons-numbers-fraction (requires Java 8+)
+ commons-numbers-gamma (requires Java 8+)
+ commons-numbers-primes (requires Java 8+)
+ commons-numbers-quaternion (requires Java 8+)
+ commons-numbers-rootfinder (requires Java 8+)
+
+No changes defined in this version.
+
+For complete information on Apache Commons Numbers, including instructions on how to submit bug
+reports, patches, or suggestions for improvement, see the Apache Commons Numbers website:
+
+http://commons.apache.org/proper/commons-numbers/
+
+

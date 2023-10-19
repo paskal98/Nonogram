@@ -1,0 +1,872 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+html {
+  scrollbar-width: none; /* Firefox 64+ */
+  overflow: -moz-scrollbars-none; /* Firefox before 64 */
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    cursor:default;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+html, body {
+  height: 100%;
+  overflow: auto;
+  margin: 0;
+}
+
+
+
+.unactive{
+  opacity: .35;
+  cursor:default;
+}
+
+.Header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  height: 68px;
+  max-width: 1100px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+}
+
+.GameNameBar{
+  width: 135px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#708567 ;
+  color: aliceblue;
+  border-radius: 6px;
+  
+}
+
+.GameNameBar h1{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.StateBar h2{
+  font-size: 24px;
+  font-weight: bold;
+  color: #000249;
+  text-transform: capitalize; 
+}
+
+.ProfileBar{
+  width: 220px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ProfileBar__profile{
+  display: flex;
+  align-items: center;
+}
+
+.ProfileBar__profile__icon{
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333030;
+  color: aliceblue;
+  font-size: 18px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.ProfileBar__profile__username{
+    font-size: 17px ;
+    color: #2E2929;
+    font-weight: bold;
+    max-width: 145px;
+    overflow: hidden;
+}
+
+.ProfileBar__settings{
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Describer{
+  padding: 0 0 0 30px;
+  margin-top: 30px;
+  display: flex;
+ justify-content: left;
+}
+
+.Describer h3{
+ text-align: left;
+ 
+ color: #000249;
+ font-size: 21px;
+ font-weight: bold;
+ 
+}
+
+.Describer button{
+  width: 85px;
+  height: 28px;
+  border: 1px solid #FF9217;
+  border-radius: 6px;
+  color: #000249;
+  background-color: none;
+  cursor: pointer;
+  background-color: white;
+  font-weight: 400;
+  font-size: 14px;
+  transition: all ease-in-out .2s;
+}
+
+.Describer button:hover{
+  border: 1px solid #000249;
+  color: white;
+  background-color: #000249;
+}
+
+.Content{
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 1035px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.Option{
+  width: 295px;
+  height: 105px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-radius:10px ;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+  transform: scale(1);
+  transition: all ease-in-out .2s;
+}
+
+.Option:hover{
+  transform: scale(1.2);
+}
+
+.Option__text{
+  display: flex;
+  flex-direction: column;
+  width: 172px;
+  height: 55px;
+}
+
+.Option__text__main{
+  font-size: 20px;
+  font-weight: bold;
+  color: #000249;
+  text-align: left;
+}
+
+.Option__text__descr{
+  font-size: 13px;
+  font-weight: bold;
+  color:#2E2929;
+  text-align: left;
+}
+
+.Option__icon{
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+
+
+
+.Footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  height: 50px;
+  margin-top: 30px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+}
+
+.Footer__stat{
+  font-weight: bold;
+  font-size: 16px;
+  color: #000000;
+}
+
+.Footer__username{
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 23px;
+  color: #000249;
+}
+
+.Nonogram{
+  margin: 0 auto;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  
+}
+
+.NongramClues{
+  display: flex;
+}
+
+.NongramClues__row{
+  flex-direction: column;
+}
+
+.NongramClues__column{
+  flex-direction: row;
+}
+
+
+.Clue{
+  display: flex;
+  justify-content: start;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.Clue input{
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.Clue input:focus{
+  border: none;
+  outline: none;
+}
+
+
+.Clue__row{
+  flex-direction: row;
+  border-top: 1px solid #000249;
+  border-left: 1px solid #000249;
+}
+
+.Clue__column{
+  flex-direction: column;
+  border-top: 1px solid #000249;
+  border-left: 1px solid #000249;
+  border-bottom: 1px solid #000249;
+}
+
+
+.Clue__row:nth-last-child(1){
+  border-bottom: 1px solid #000249;
+}
+
+.Clue__column:nth-last-child(1){
+  border-right: 1px solid #000249 ;
+}
+
+.Clue__element{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.Clue__element__row{
+  border-left: 1px solid #000249 !important;
+}
+
+
+
+.Clue__element__row:nth-child(1){
+  border-left: none !important;
+}
+
+.Clue__element__column{
+  border-top: 1px solid #000249 !important;
+}
+
+.Clue__element__column:nth-child(1){
+  border-top: none !important;
+}
+
+
+
+.NonogramGameField{
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #000249 ;
+}
+
+.NonogramGameField__row{
+  display: flex;
+}
+
+.NonogramGameField__row__cell{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #000249;
+  border-right: 1px solid #000249;
+  cursor: pointer;
+  
+}
+
+
+@keyframes fadeInOutCell {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.filled{
+  animation-name: fadeInOutCell;
+  animation-duration: .2s;
+  animation-timing-function:ease;
+  background-color: #afafaf;
+}
+
+.GameButtons{
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 200px;
+  gap: 15px;
+}
+
+.Button{
+  width: 90px;
+  height: 32px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all ease-in-out .3s;
+}
+
+.Button__ingame{
+  color: #101254;
+  border: 1px solid #101254;
+  background: #ffffff;
+}
+
+.Button__ingame:hover{
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background: #101254;
+}
+
+.Button__break{
+  color: #F1F1F1;
+  background: #F08787;
+}
+
+.Button__break:hover{
+  color: #F1F1F1;
+  background: #F08787ab;
+}
+
+.Button__submit{
+  color: #F1F1F1;
+  background: #82A673;
+}
+
+.Button__submit:hover{
+  color: #F1F1F1;
+  background: #82a673ab;
+}
+
+.Input{
+  width:300px ;
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.Input input{
+  display: block;
+  width: 120px;
+  height: 20px;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.Input label{
+  margin: 0 auto;
+  width: 200px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.SingleGame{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Traning{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Traning__gameinfo{
+  display: flex;
+  justify-content: center;
+}
+
+.Traning__info{
+  margin-left: 35px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Traning__info__clue{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  
+}
+
+.Traning__info__clue__grid{
+  width: 80px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000249;
+  border-left: none;
+
+}
+
+.Traning__info__clue__grid__item{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+    font-weight: bold;
+  border-left: 1px solid #000249;
+}
+
+.Traning__info__clue__descr{
+  margin-left: 20px;
+  width: 250px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.Traning__grid__column{
+  flex-direction: column;
+  height: 80px;
+  width: 40px;
+  border-bottom: none;
+  margin-left: 15px;
+
+}
+
+.Traning__item__column{
+  border-bottom:1px solid #000249 ;
+}
+
+.Traning__buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 15px;
+}
+
+.Traning__buttons__item{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+.Traning__buttons__item__descr{
+
+  margin-left: 15px;
+  font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    width: 300px;
+
+}
+
+.Traning__rules{
+  margin-top: 30px;
+  width: 500px;
+  text-align: left;
+}
+
+.Traning__rules  h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Traning__rules ul{
+margin-top: 15px;
+  list-style-type: none;
+    padding: 0;
+
+}
+
+.Traning__rules li{
+    border: 1px solid #d4d4d4;
+    margin-bottom: 5px;
+    padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.Traning__rules p{
+  text-indent: 30px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.Solver{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Solver__content{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.form {
+  width: 300px;
+  padding: 64px 15px 24px;
+  margin: 0 auto;
+}
+.form .control {
+  margin: 0 0 24px;
+}
+.form .control input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: monospace, serif;
+  letter-spacing: 0.05em;
+  font-size: 16px;
+}
+.form .control input:hover, .form .control input:focus {
+  outline: none;
+  border: 0;
+}
+.form .btn {
+  width: 100%;
+  display: block;
+  padding: 14px 16px;
+  background: transparent;
+  outline: none;
+  border: 0;
+  color: #fff;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 16px;
+}
+
+.block-cube {
+  position: relative;
+}
+.block-cube .bg-top {
+  position: absolute;
+  height: 10px;
+  background: #020024;
+  background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+  bottom: 100%;
+  left: 5px;
+  right: -5px;
+  transform: skew(-45deg, 0);
+  margin: 0;
+}
+.block-cube .bg-top .bg-inner {
+  bottom: 0;
+}
+.block-cube .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #020024;
+  background: linear-gradient(90deg, #020024 0%, #340979 37%, #00d4ff 94%);
+}
+.block-cube .bg-right {
+  position: absolute;
+  background: #020024;
+  background: #00d4ff;
+  top: -5px;
+  z-index: 0;
+  bottom: 5px;
+  width: 10px;
+  left: 100%;
+  transform: skew(0, -45deg);
+}
+.block-cube .bg-right .bg-inner {
+  left: 0;
+}
+.block-cube .bg .bg-inner {
+  transition: all 0.2s ease-in-out;
+}
+.block-cube .bg-inner {
+  background: #212121;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+}
+.block-cube .text {
+  position: relative;
+  z-index: 2;
+}
+.block-cube.block-input input {
+  position: relative;
+  z-index: 2;
+}
+.block-cube.block-input input:focus ~ .bg-right .bg-inner, .block-cube.block-input input:focus ~ .bg-top .bg-inner, .block-cube.block-input input:focus ~ .bg-inner .bg-inner {
+  top: 100%;
+  background: rgba(255, 255, 255, 0.5);
+}
+.block-cube.block-input .bg-top,
+.block-cube.block-input .bg-right,
+.block-cube.block-input .bg {
+  background: rgb(253 255 0 / 50%);
+  transition: all 0.2s ease-in-out;
+}
+.block-cube.block-input .bg-right .bg-inner,
+.block-cube.block-input .bg-top .bg-inner {
+  transition: all 0.2s ease-in-out;
+}
+.block-cube.block-input:focus .bg-top,
+.block-cube.block-input:focus .bg-right,
+.block-cube.block-input:focus .bg, .block-cube.block-input:hover .bg-top,
+.block-cube.block-input:hover .bg-right,
+.block-cube.block-input:hover .bg {
+  background: rgba(255, 255, 255, 0.8);
+}
+.block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner {
+  top: 100%;
+}
+
+.credits {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 15px 15px;
+  width: 100%;
+  z-index: 111;
+}
+.credits a {
+  opacity: 0.6;
+  color: #fff;
+  font-size: 11px;
+  text-decoration: none;
+}
+.credits a:hover {
+  opacity: 1;
+}
+
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+.success-msg {
+  animation-name: fadeInOut;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
+  color: #270;
+  background-color: #DFF2BF;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  
+}
+.warning-msg {
+  animation-name: fadeInOut;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
+  color: #9F6000;
+  background-color: #FEEFB3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+}
+
+
+.stars{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: fadeIn;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
+  margin-bottom: 20px;
+  height: 40px;
+}
+
+.p-rating-item svg{
+  width: 30px;
+  scale: 1.5;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+.solved-message {
+  animation-name: fadeIn;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+  background-color: #82A673;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.solved-message p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.fade-in{
+  animation-name: fadeIn;
+  animation-duration: 2.5s;
+  animation-timing-function: ease;
+}
+
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.single-player-icon {
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+}
+
+.controller-body {
+  fill: #ff8c0b;
+}
+
+.controller-stick, .controller-button {
+  fill: #181a5a;
+}
+

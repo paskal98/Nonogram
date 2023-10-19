@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Score Table</title>
+    <style>
+        a{
+            color: #f1f1f1;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            width: 80%;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #eee;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        .container{
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-evenly;
+            width: 270px;
+        }
+    </style>
+</head>
+<body>
+<h1>Score Table</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Nickname</th>
+        <th>Time</th>
+        <th>Field Size</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+
+
+    <tbody >
+    <tr th:each="record : ${tableData}">
+        <td><span th:text="${record.getNickName()}">100ms</span></td>
+        <td><span th:text="${record.getSolvingTime()+' ms'}">100ms</span></td>
+        <td><span th:text="${record.getMapSize()+'x'+record.getMapSize()}">10x10</span></td>
+        <td><span th:text="${record.getStatus()}">DONE</span></td>
+    </tr>
+    </tbody>
+
+</table>
+
+<div class="container">
+    <button><a href="/nonogram">Start New Game</a></button>
+    <button><a href="/login">Log out</a></button>
+</div>
+
+
+</body>
+</html>

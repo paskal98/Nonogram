@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pre-login Page</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+        }
+        form {
+            margin: 0 auto;
+            max-width: 400px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            font-size: 16px;
+        }
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<h1>Enter your nickname</h1>
+<form th:method="POST" th:action="@{/login}" th:object="${player}">
+    <label for="nickname-input">Nickname:</label>
+    <input type="text" id="nickname-input" name="nickname" th:field="*{nickname}">
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>
