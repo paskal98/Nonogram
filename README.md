@@ -5,5 +5,8 @@ https://youtu.be/YSQfQ3C8IO0
 ## Client
 1. npm install
 2. npm start
-## Server
+## Servers
 1. mvn build
+## Start servers
+1. start server (NonogramApplicationServer.java)
+2. start client (NonogramApplicationClient.java)
