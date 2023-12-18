@@ -7,4 +7,3 @@ https://youtu.be/YSQfQ3C8IO0
 2. npm start
 ## Server
 1. mvn build
-2. mvn run
